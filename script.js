@@ -7,12 +7,12 @@ const weatherIcon = document.querySelector(".weather-icon");
 
 async function checkWeather(city){
 
-    if (!secrets || !secrets.API_KEY) {
+    if (!API_KEY) {
         console.error("API Key is missing!");
         return;
     }
 
-    const response= await fetch(apiUrl + city + `&appid=${secrets.API_KEY}`);
+    const response= await fetch(apiUrl + city + `&appid=${API_KEY}`);
 
     if (!response.ok){  // (response.status == 404)
         document.querySelector(".error").style.display = "block";
