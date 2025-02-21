@@ -4,23 +4,7 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
-let API_KEY;
-
-fetch('/env.js')
-  .then(response => response.text()) 
-  .then(data => {
-    eval(data); 
-    console.log("API_KEY cargada:", window.API_KEY);
-    API_KEY = window.API_KEY;
-  })
-  .catch(error => console.error("Error cargando env.js:", error));
-
 async function checkWeather(city){
-
-    if (!API_KEY) {
-        console.error("API Key is missing!");
-        return;
-    }
 
     const response= await fetch(apiUrl + city + `&appid=${API_KEY}`);
 
